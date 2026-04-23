@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Horizon Studios | Drone Cinematography</title>
+    <meta name="description" content="Horizon Studios offers premium aerial drone filming and cinematography services. Capture the world from above with our futuristic, high-end approach.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        /* Homepage specific styles */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .hero-bg-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -2;
+        }
+
+        @keyframes kenburns {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.1); }
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(10,10,10,0.4), rgba(10,10,10,0.9));
+            z-index: -1;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: 0 5%;
+        }
+
+        .hero h1 {
+            margin-bottom: 1.5rem;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--color-text-muted);
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+        }
+
+        /* Overview Section */
+        .overview {
+            background-color: var(--color-bg);
+            padding: 6rem 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            display: inline-block;
+            position: relative;
+        }
+
+        .section-header h2::after {
+            content: '';
+            position: absolute;
+            width: 50%;
+            height: 3px;
+            background-color: var(--color-accent);
+            bottom: -10px;
+            left: 25%;
+            border-radius: 2px;
+            box-shadow: 0 0 10px var(--color-accent);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background-color: var(--color-bg-secondary);
+            border: 1px solid var(--color-border);
+            padding: 2.5rem 2rem;
+            border-radius: 8px;
+            text-align: center;
+            transition: all var(--transition-normal);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, rgba(255,90,10,0.1) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity var(--transition-normal);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(255, 90, 10, 0.3);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .service-card:hover::before {
+            opacity: 1;
+        }
+
+        .service-icon {
+            font-size: 2.5rem;
+            color: var(--color-accent);
+            margin-bottom: 1.5rem;
+            text-shadow: 0 0 10px rgba(255,90,10,0.4);
+        }
+
+        .service-card h3 {
+            margin-bottom: 1rem;
+        }
+
+        .service-card p {
+            color: var(--color-text-muted);
+            font-size: 0.95rem;
+        }
+
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <a href="index.html" class="logo-img-link"><img src="assets/images/Logo_Horizon.png" alt="Horizon Studios Logo" class="logo-img"></a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <div class="hamburger">
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <video class="hero-bg-video" autoplay loop muted playsinline>
+            <source src="assets/VIdeos/Video_Gustavo.mp4" type="video/mp4">
+        </video>
+        <div class="hero-overlay"></div>
+        <div class="hero-content fade-in">
+            <h1>Capture the World <br> From Above</h1>
+            <p>Cinematic drone filming and premium aerial videography for those who demand the extraordinary.</p>
+            <div class="hero-cta">
+                <a href="portfolio.html" class="btn btn-primary">View Portfolio</a>
+                <a href="contact.html" class="btn btn-outline">Get a Quote</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="overview">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>Our Expertise</h2>
+            </div>
+            <div class="services-grid">
+                <div class="service-card fade-in">
+                    <div class="service-icon">🎬</div>
+                    <h3>Aerial Filming</h3>
+                    <p>High-end cinematic drone footage for commercials, films, and documentaries.</p>
+                </div>
+                <div class="service-card fade-in" style="transition-delay: 0.1s;">
+                    <div class="service-icon">🏢</div>
+                    <h3>Real Estate</h3>
+                    <p>Breathtaking aerial views that showcase luxury properties and large developments.</p>
+                </div>
+                <div class="service-card fade-in" style="transition-delay: 0.2s;">
+                    <div class="service-icon">🏎️</div>
+                    <h3>Commercials</h3>
+                    <p>Dynamic, high-speed tracking shots perfect for automotive and action sports.</p>
+                </div>
+                <div class="service-card fade-in" style="transition-delay: 0.3s;">
+                    <div class="service-icon">🎉</div>
+                    <h3>Event Coverage</h3>
+                    <p>Unforgettable perspectives of festivals, concerts, and major outdoor events.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container footer-content">
+            <a href="index.html" class="logo-img-link"><img src="assets/images/Logo_Horizon.png" alt="Horizon Studios Logo" class="logo-img"></a>
+            <div class="social-links">
+                <a href="#">Instagram</a>
+                <a href="#">Vimeo</a>
+                <a href="#">YouTube</a>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2026 Horizon Studios. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | Horizon Studios</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        .about-section {
+            padding: 12rem 0 6rem;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-content h1 {
+            color: var(--color-accent);
+            margin-bottom: 1.5rem;
+            text-shadow: 0 0 20px rgba(255,90,10,0.3);
+        }
+
+        .about-content p {
+            color: var(--color-text-muted);
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .about-image {
+            position: relative;
+        }
+
+        .about-image img {
+            width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+            border: 1px solid var(--color-border);
+        }
+
+        .about-image::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            left: -20px;
+            width: 100px;
+            height: 100px;
+            background: var(--color-accent);
+            filter: blur(80px);
+            z-index: -1;
+            opacity: 0.5;
+        }
+
+        .mission-vision {
+            background-color: var(--color-bg-secondary);
+            padding: 6rem 0;
+            margin-top: 4rem;
+        }
+
+        .mv-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .mv-card {
+            background: var(--color-bg);
+            padding: 3rem;
+            border-radius: 8px;
+            border: 1px solid var(--color-border);
+            border-top: 3px solid var(--color-accent);
+        }
+
+        .mv-card h3 {
+            margin-bottom: 1rem;
+            font-size: 1.8rem;
+        }
+
+        @media (max-width: 900px) {
+            .about-grid, .mv-grid {
+                grid-template-columns: 1fr;
+            }
+            .about-section {
+                padding: 8rem 0 4rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <a href="index.html" class="logo-img-link"><img src="assets/images/Logo_Horizon.png" alt="Horizon Studios Logo" class="logo-img"></a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="about.html" class="active">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <div class="hamburger">
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
+        </div>
+    </nav>
+
+    <section class="about-section container">
+        <div class="about-grid">
+            <div class="about-content fade-in">
+                <h1>Beyond the Horizon</h1>
+                <p>Horizon Studios was founded on a simple principle: to push the boundaries of what's possible in aerial cinematography. We blend cutting-edge drone technology with a deep understanding of cinematic lighting, composition, and storytelling.</p>
+                <p>Our fleet consists of custom-built FPV rigs and heavy-lift drones capable of carrying Hollywood-grade cinema cameras. Whether it's tracking a hypercar on a winding mountain pass or capturing the delicate architecture of a luxury home, we deliver visuals that demand attention.</p>
+            </div>
+            <div class="about-image fade-in" style="transition-delay: 0.2s;">
+                <img src="assets/images/about_drone.png" alt="Futuristic Drone">
+            </div>
+        </div>
+    </section>
+
+    <section class="mission-vision">
+        <div class="container mv-grid">
+            <div class="mv-card fade-in">
+                <h3>Our Mission</h3>
+                <p style="color: var(--color-text-muted);">To provide filmmakers, agencies, and brands with unparalleled aerial perspectives that elevate their projects from ordinary to cinematic masterpieces.</p>
+            </div>
+            <div class="mv-card fade-in" style="transition-delay: 0.2s;">
+                <h3>Our Vision</h3>
+                <p style="color: var(--color-text-muted);">To be the global pioneer in drone cinematography, constantly innovating with new technologies and flight techniques to capture the impossible.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container footer-content">
+            <a href="index.html" class="logo-img-link"><img src="assets/images/Logo_Horizon.png" alt="Horizon Studios Logo" class="logo-img"></a>
+            <div class="social-links">
+                <a href="#">Instagram</a>
+                <a href="#">Vimeo</a>
+                <a href="#">YouTube</a>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2026 Horizon Studios. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

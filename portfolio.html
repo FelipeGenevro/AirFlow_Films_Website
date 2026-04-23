@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | Horizon Studios</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        .page-header {
+            padding: 12rem 0 4rem;
+            text-align: center;
+        }
+
+        .page-header h1 {
+            color: var(--color-accent);
+            text-shadow: 0 0 20px rgba(255,90,10,0.3);
+        }
+
+        /* Filter Controls */
+        .filter-controls {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 3rem;
+        }
+
+        .filter-btn {
+            background: transparent;
+            border: 1px solid var(--color-border);
+            color: var(--color-text);
+            padding: 0.5rem 1.5rem;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all var(--transition-fast);
+            font-family: var(--font-primary);
+            font-size: 1rem;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: var(--color-accent);
+            border-color: var(--color-accent);
+            color: #fff;
+            box-shadow: 0 0 15px rgba(255,90,10,0.4);
+        }
+
+        /* Gallery Grid */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 5rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: 8px;
+            overflow: hidden;
+            aspect-ratio: 16 / 9;
+            cursor: pointer;
+            transition: transform var(--transition-normal), opacity var(--transition-normal);
+        }
+
+        .gallery-item.hide {
+            display: none;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform var(--transition-slow);
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .item-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 2rem 1.5rem 1.5rem;
+            background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+            transform: translateY(20px);
+            opacity: 0;
+            transition: all var(--transition-normal);
+        }
+
+        .gallery-item:hover .item-overlay {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .item-overlay h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.2rem;
+            color: #fff;
+        }
+
+        .item-category {
+            font-size: 0.8rem;
+            color: var(--color-accent);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        @media (max-width: 600px) {
+            .gallery {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <a href="index.html" class="logo-img-link"><img src="assets/images/Logo_Horizon.png" alt="Horizon Studios Logo" class="logo-img"></a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="portfolio.html" class="active">Portfolio</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <div class="hamburger">
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
+        </div>
+    </nav>
+
+    <header class="page-header fade-in">
+        <div class="container">
+            <h1>Our Work</h1>
+        </div>
+    </header>
+
+    <section class="container fade-in">
+        <div class="filter-controls">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="real-estate">Real Estate</button>
+            <button class="filter-btn" data-filter="commercial">Commercial</button>
+            <button class="filter-btn" data-filter="nature">Nature</button>
+        </div>
+
+        <div class="gallery">
+            <div class="gallery-item" data-category="real-estate">
+                <img src="assets/images/portfolio_1.png" alt="Luxury Mansion">
+                <div class="item-overlay">
+                    <h3>Sunset Villa</h3>
+                    <div class="item-category">Real Estate</div>
+                </div>
+            </div>
+            
+            <div class="gallery-item" data-category="commercial">
+                <img src="assets/images/portfolio_2.png" alt="Sports Car">
+                <div class="item-overlay">
+                    <h3>Mountain Drift</h3>
+                    <div class="item-category">Commercial</div>
+                </div>
+            </div>
+            
+            <div class="gallery-item" data-category="nature">
+                <img src="assets/images/hero_bg.png" alt="Cityscape">
+                <div class="item-overlay">
+                    <h3>Neon Metropolis</h3>
+                    <div class="item-category">Nature / City</div>
+                </div>
+            </div>
+            
+            <div class="gallery-item" data-category="commercial">
+                <div style="width:100%; height:100%; background:#222; display:flex; align-items:center; justify-content:center;">
+                    <span style="color:var(--color-text-muted)">Coming Soon</span>
+                </div>
+                <div class="item-overlay">
+                    <h3>Product Launch</h3>
+                    <div class="item-category">Commercial</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container footer-content">
+            <a href="index.html" class="logo-img-link"><img src="assets/images/Logo_Horizon.png" alt="Horizon Studios Logo" class="logo-img"></a>
+            <div class="social-links">
+                <a href="#">Instagram</a>
+                <a href="#">Vimeo</a>
+                <a href="#">YouTube</a>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2026 Horizon Studios. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>
+        // Portfolio Filtering Logic
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const galleryItems = document.querySelectorAll('.gallery-item');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active class from all buttons
+                filterBtns.forEach(b => b.classList.remove('active'));
+                // Add active class to clicked button
+                btn.classList.add('active');
+
+                const filterValue = btn.getAttribute('data-filter');
+
+                galleryItems.forEach(item => {
+                    if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
+                        item.classList.remove('hide');
+                        // Reset opacity for transition
+                        setTimeout(() => {
+                            item.style.opacity = '1';
+                            item.style.transform = 'scale(1)';
+                        }, 50);
+                    } else {
+                        item.style.opacity = '0';
+                        item.style.transform = 'scale(0.8)';
+                        setTimeout(() => {
+                            item.classList.add('hide');
+                        }, 400); // Wait for transition to finish
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

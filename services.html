@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services | Horizon Studios</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        .page-header {
+            padding: 12rem 0 6rem;
+            text-align: center;
+            background: linear-gradient(to bottom, #111, var(--color-bg));
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        .page-header h1 {
+            color: var(--color-accent);
+            text-shadow: 0 0 20px rgba(255,90,10,0.3);
+        }
+
+        .page-header p {
+            max-width: 600px;
+            margin: 1.5rem auto 0;
+            color: var(--color-text-muted);
+            font-size: 1.2rem;
+        }
+
+        .service-detail {
+            display: flex;
+            align-items: center;
+            gap: 4rem;
+            margin-bottom: 8rem;
+        }
+
+        .service-detail:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .service-text {
+            flex: 1;
+        }
+
+        .service-text h2 {
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .service-text h2 span {
+            color: var(--color-accent);
+            font-size: 2.5rem;
+        }
+
+        .service-text p {
+            color: var(--color-text-muted);
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .service-text ul {
+            margin-bottom: 2rem;
+        }
+
+        .service-text ul li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.8rem;
+            color: var(--color-text-muted);
+        }
+
+        .service-text ul li::before {
+            content: '▹';
+            position: absolute;
+            left: 0;
+            color: var(--color-accent);
+            font-weight: bold;
+        }
+
+        .service-visual {
+            flex: 1;
+            position: relative;
+        }
+
+        .visual-box {
+            width: 100%;
+            padding-top: 66%; /* 3:2 Aspect Ratio */
+            background-color: var(--color-bg-secondary);
+            border-radius: 12px;
+            border: 1px solid var(--color-border);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+        }
+
+        .visual-box::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(255,90,10,0.2) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .service-detail, .service-detail:nth-child(even) {
+                flex-direction: column;
+                gap: 2rem;
+            }
+            .page-header {
+                padding: 8rem 0 4rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <a href="index.html" class="logo-img-link"><img src="assets/images/Logo_Horizon.png" alt="Horizon Studios Logo" class="logo-img"></a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="services.html" class="active">Services</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <div class="hamburger">
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
+        </div>
+    </nav>
+
+    <header class="page-header fade-in">
+        <div class="container">
+            <h1>Our Services</h1>
+            <p>Elevating your visual storytelling with state-of-the-art drone cinematography.</p>
+        </div>
+    </header>
+
+    <section class="services-content container">
+        
+        <div class="service-detail fade-in">
+            <div class="service-text">
+                <h2><span>🎬</span> Aerial Filming</h2>
+                <p>We provide ultra-smooth, high-resolution aerial footage for films, documentaries, and TV productions. Our heavy-lift drones can carry cinema cameras like ARRI and RED, ensuring no compromise on quality.</p>
+                <ul>
+                    <li>Up to 8K Resolution RAW recording</li>
+                    <li>Dual Operator Setup (Pilot + Camera Op)</li>
+                    <li>FPV (First Person View) cinematic tracking</li>
+                </ul>
+                <a href="contact.html" class="btn btn-outline">Request a Quote</a>
+            </div>
+            <div class="service-visual">
+                <div class="visual-box" style="background-image: url('assets/images/portfolio_2.png'); background-size: cover; background-position: center;"></div>
+            </div>
+        </div>
+
+        <div class="service-detail fade-in">
+            <div class="service-text">
+                <h2><span>🏢</span> Real Estate Videography</h2>
+                <p>Transform how properties are presented. We capture sweeping aerial reveals, neighborhood context, and smooth interior fly-throughs that give potential buyers a true sense of scale and luxury.</p>
+                <ul>
+                    <li>Twilight and sunrise shoots</li>
+                    <li>360° Virtual Tours & Panoramas</li>
+                    <li>Property boundary highlighting</li>
+                </ul>
+                <a href="contact.html" class="btn btn-outline">Request a Quote</a>
+            </div>
+            <div class="service-visual">
+                <div class="visual-box" style="background-image: url('assets/images/portfolio_1.png'); background-size: cover; background-position: center;"></div>
+            </div>
+        </div>
+
+        <div class="service-detail fade-in">
+            <div class="service-text">
+                <h2><span>🎉</span> Event Coverage</h2>
+                <p>Capture the magnitude and energy of your event from the sky. Perfect for music festivals, sporting events, outdoor weddings, and corporate retreats.</p>
+                <ul>
+                    <li>Live broadcast integration</li>
+                    <li>Safety-first crowd compliance</li>
+                    <li>Highlight reel editing</li>
+                </ul>
+                <a href="contact.html" class="btn btn-outline">Request a Quote</a>
+            </div>
+            <div class="service-visual">
+                <div class="visual-box" style="background: var(--color-bg-secondary);">
+                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%, -50%); color: var(--color-text-muted);">Event Visual</div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <footer>
+        <div class="container footer-content">
+            <a href="index.html" class="logo-img-link"><img src="assets/images/Logo_Horizon.png" alt="Horizon Studios Logo" class="logo-img"></a>
+            <div class="social-links">
+                <a href="#">Instagram</a>
+                <a href="#">Vimeo</a>
+                <a href="#">YouTube</a>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2026 Horizon Studios. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
