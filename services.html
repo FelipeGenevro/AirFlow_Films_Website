@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,7 +8,8 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
     <style>
         .page-header {
@@ -88,12 +90,13 @@
 
         .visual-box {
             width: 100%;
-            padding-top: 66%; /* 3:2 Aspect Ratio */
+            padding-top: 66%;
+            /* 3:2 Aspect Ratio */
             background-color: var(--color-bg-secondary);
             border-radius: 12px;
             border: 1px solid var(--color-border);
             position: relative;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
         }
 
         .visual-box::after {
@@ -109,20 +112,25 @@
 
         /* Responsive */
         @media (max-width: 900px) {
-            .service-detail, .service-detail:nth-child(even) {
+
+            .service-detail,
+            .service-detail:nth-child(even) {
                 flex-direction: column;
                 gap: 2rem;
             }
+
             .page-header {
                 padding: 8rem 0 4rem;
             }
         }
     </style>
 </head>
+
 <body>
 
     <nav class="navbar">
-        <a href="index.html" class="logo-img-link"><img src="assets/images/Logo_Horizon.png" alt="Horizon Studios Logo" class="logo-img"></a>
+        <a href="index.html" class="logo-img-link"><img src="assets/images/Logo_Horizon.png" alt="Horizon Studios Logo"
+                class="logo-img"></a>
         <ul class="nav-links">
             <li><a href="index.html">Início</a></li>
             <li><a href="services.html" class="active">Serviços</a></li>
@@ -145,27 +153,33 @@
     </header>
 
     <section class="services-content container">
-        
+
         <div class="service-detail fade-in">
             <div class="service-text">
                 <h2><span>🎬</span> Filmagem Aérea</h2>
-                <p>Fornecemos imagens aéreas ultra suaves e de alta resolução para filmes, documentários e produções de TV. Nossos drones de alta capacidade podem transportar câmeras de cinema como ARRI e RED, garantindo a máxima qualidade.</p>
+                <p>Fornecemos imagens aéreas ultra suaves e de alta resolução para filmes, documentários e produções de
+                    TV. Nossos drones de alta capacidade podem transportar câmeras de cinema como ARRI e RED, garantindo
+                    a máxima qualidade.</p>
                 <ul>
-                    <li>Gravação RAW em resolução de até 8K</li>
+                    <li>Gravação RAW em resolução de até 4K</li>
                     <li>Configuração de Operador Duplo (Piloto + Operador de Câmera)</li>
                     <li>Rastreamento cinematográfico FPV (Visão em Primeira Pessoa)</li>
                 </ul>
                 <a href="contact.html" class="btn btn-outline">Solicitar Orçamento</a>
             </div>
             <div class="service-visual">
-                <div class="visual-box" style="background-image: url('assets/images/portfolio_2.png'); background-size: cover; background-position: center;"></div>
+                <div class="visual-box"
+                    style="background-image: url('assets/images/portfolio_2.png'); background-size: cover; background-position: center;">
+                </div>
             </div>
         </div>
 
         <div class="service-detail fade-in">
             <div class="service-text">
                 <h2><span>🏢</span> Videografia Imobiliária</h2>
-                <p>Transforme a forma como as propriedades são apresentadas. Capturamos revelações aéreas deslumbrantes, contexto da vizinhança e sobrevoos interiores suaves que dão aos potenciais compradores uma verdadeira noção de escala e luxo.</p>
+                <p>Transforme a forma como as propriedades são apresentadas. Capturamos revelações aéreas deslumbrantes,
+                    contexto da vizinhança e sobrevoos interiores suaves que dão aos potenciais compradores uma
+                    verdadeira noção de escala e luxo.</p>
                 <ul>
                     <li>Sessões ao entardecer e amanhecer</li>
                     <li>Tours Virtuais 360° e Panoramas</li>
@@ -174,16 +188,18 @@
                 <a href="contact.html" class="btn btn-outline">Solicitar Orçamento</a>
             </div>
             <div class="service-visual">
-                <div class="visual-box" style="background-image: url('assets/images/portfolio_1.png'); background-size: cover; background-position: center;"></div>
+                <div class="visual-box"
+                    style="background-image: url('assets/images/portfolio_1.png'); background-size: cover; background-position: center;">
+                </div>
             </div>
         </div>
 
         <div class="service-detail fade-in">
             <div class="service-text">
                 <h2><span>🎉</span> Cobertura de Eventos</h2>
-                <p>Capture a magnitude e a energia do seu evento lá do alto. Perfeito para festivais de música, eventos esportivos, casamentos ao ar livre e retiros corporativos.</p>
+                <p>Capture a magnitude e a energia do seu evento lá do alto. Perfeito para festivais de música, eventos
+                    esportivos, casamentos ao ar livre e retiros corporativos.</p>
                 <ul>
-                    <li>Integração com transmissão ao vivo</li>
                     <li>Conformidade e segurança em multidões</li>
                     <li>Edição de destaques (Highlight reel)</li>
                 </ul>
@@ -191,7 +207,9 @@
             </div>
             <div class="service-visual">
                 <div class="visual-box" style="background: var(--color-bg-secondary);">
-                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%, -50%); color: var(--color-text-muted);">Visual do Evento</div>
+                    <div
+                        style="position:absolute; top:50%; left:50%; transform:translate(-50%, -50%); color: var(--color-text-muted);">
+                        Visual do Evento</div>
                 </div>
             </div>
         </div>
@@ -200,18 +218,19 @@
 
     <footer>
         <div class="container footer-content">
-            <a href="index.html" class="logo-img-link"><img src="assets/images/Logo_Horizon.png" alt="Horizon Studios Logo" class="logo-img"></a>
+            <a href="index.html" class="logo-img-link"><img src="assets/images/Logo_Horizon.png"
+                    alt="Horizon Studios Logo" class="logo-img"></a>
             <div class="social-links">
                 <a href="#">Instagram</a>
-                <a href="#">Vimeo</a>
                 <a href="#">YouTube</a>
             </div>
             <div class="footer-bottom">
-                &copy; 2026 Horizon Studios. Todos os direitos reservados.
+                &copy; 2026 AirFlow Films. Todos os direitos reservados.
             </div>
         </div>
     </footer>
 
     <script src="js/main.js"></script>
 </body>
+
 </html>
