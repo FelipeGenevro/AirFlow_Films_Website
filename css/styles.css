@@ -1,9 +1,9 @@
 :root {
-  --color-bg: #0a0a0a;
+  --color-bg: #000000;
   --color-bg-secondary: #111111;
-  --color-accent: #ff5a0a;
-  --color-accent-hover: #ff7636;
-  --color-text: #ffffff;
+  --color-accent: #EDEBE6;
+  --color-accent-hover: #ffffff;
+  --color-text: #EDEBE6;
   --color-text-muted: #a0a0a0;
   --color-border: #222222;
   
@@ -62,15 +62,15 @@ h3 { font-size: clamp(1.5rem, 3vw, 2rem); }
 
 .btn-primary {
   background-color: var(--color-accent);
-  color: #fff;
+  color: #000000;
   border: 1px solid var(--color-accent);
-  box-shadow: 0 0 15px rgba(255, 90, 10, 0.4);
+  box-shadow: 0 0 15px rgba(237, 235, 230, 0.2);
 }
 
 .btn-primary:hover {
   background-color: var(--color-accent-hover);
   border-color: var(--color-accent-hover);
-  box-shadow: 0 0 25px rgba(255, 90, 10, 0.7);
+  box-shadow: 0 0 25px rgba(237, 235, 230, 0.4);
   transform: translateY(-2px);
 }
 
@@ -96,7 +96,7 @@ h3 { font-size: clamp(1.5rem, 3vw, 2rem); }
   align-items: center;
   z-index: 1000;
   transition: all var(--transition-normal);
-  background: rgba(10, 10, 10, 0.8);
+  background: rgba(0, 0, 0, 0.8);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid transparent;
 }
@@ -200,7 +200,7 @@ section {
     top: 100%;
     right: 0;
     width: 200px;
-    background-color: rgba(10, 10, 10, 0.95);
+    background-color: rgba(0, 0, 0, 0.95);
     flex-direction: column;
     padding: 2rem;
     gap: 1.5rem;
