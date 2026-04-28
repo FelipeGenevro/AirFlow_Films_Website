@@ -6,9 +6,9 @@
   --color-text: #EDEBE6;
   --color-text-muted: #a0a0a0;
   --color-border: #222222;
-  
+
   --font-primary: 'Outfit', sans-serif;
-  
+
   --transition-fast: 0.2s ease;
   --transition-normal: 0.4s ease;
   --transition-slow: 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
@@ -38,14 +38,27 @@ ul {
   list-style: none;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-weight: 700;
   line-height: 1.2;
 }
 
-h1 { font-size: clamp(2.5rem, 5vw, 4.5rem); }
-h2 { font-size: clamp(2rem, 4vw, 3rem); }
-h3 { font-size: clamp(1.5rem, 3vw, 2rem); }
+h1 {
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+}
+
+h2 {
+  font-size: clamp(2rem, 4vw, 3rem);
+}
+
+h3 {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+}
 
 /* --- Buttons --- */
 .btn {
@@ -218,9 +231,17 @@ section {
     display: flex;
   }
 
-  .toggle .line1 { transform: rotate(-45deg) translate(-5px, 5px); }
-  .toggle .line2 { opacity: 0; }
-  .toggle .line3 { transform: rotate(45deg) translate(-5px, -5px); }
+  .toggle .line1 {
+    transform: rotate(-45deg) translate(-5px, 5px);
+  }
+
+  .toggle .line2 {
+    opacity: 0;
+  }
+
+  .toggle .line3 {
+    transform: rotate(45deg) translate(-5px, -5px);
+  }
 }
 
 /* --- Footer --- */
@@ -251,4 +272,47 @@ footer {
   margin-top: 2rem;
   color: var(--color-text-muted);
   font-size: 0.9rem;
+}
+
+.gallery-item video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Botão central */
+.play-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(5px);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+/* Triângulo do play */
+.play-button::before {
+  content: '';
+  border-style: solid;
+  border-width: 10px 0 10px 16px;
+  border-color: transparent transparent transparent white;
+  margin-left: 3px;
+}
+
+/* Hover */
+.gallery-item:hover .play-button {
+  transform: translate(-50%, -50%) scale(1.1);
+  background: rgba(0, 0, 0, 0.8);
 }
