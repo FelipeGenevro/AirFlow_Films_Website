@@ -194,6 +194,165 @@ section {
   padding: 5rem 0;
 }
 
+/* --- Differentials Section --- */
+.differentials {
+  background-color: var(--color-bg);
+  padding: 6rem 0;
+  border-top: 1px solid var(--color-border);
+}
+
+.differentials-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2rem;
+}
+
+.diff-card {
+  background: transparent;
+  border-left: 3px solid var(--color-accent);
+  padding: 1.5rem 2rem;
+  transition: all var(--transition-normal);
+}
+
+.diff-card:hover {
+  background: rgba(237, 235, 230, 0.03);
+  transform: translateX(10px);
+}
+
+.diff-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.diff-card h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  color: var(--color-text);
+}
+
+.diff-card p {
+  color: var(--color-text-muted);
+  font-size: 0.95rem;
+}
+
+/* --- Differentials Section --- */
+.differentials {
+  background-color: var(--color-bg);
+  padding: 6rem 0;
+  border-top: 1px solid var(--color-border);
+}
+
+.differentials-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2rem;
+}
+
+.diff-card {
+  background: transparent;
+  border-left: 3px solid rgba(237, 235, 230, 0.2);
+  padding: 1.5rem 2rem;
+  transition: all 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+  opacity: 0.3;
+  transform: scale(0.95) translateY(20px);
+}
+
+.diff-card.highlight-active,
+.diff-card:hover {
+  background: rgba(237, 235, 230, 0.05);
+  transform: scale(1) translateY(0) translateX(10px);
+  opacity: 1;
+  border-left-color: var(--color-accent);
+  box-shadow: -10px 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.diff-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.diff-card h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  color: var(--color-text);
+}
+
+.diff-card p {
+  color: var(--color-text-muted);
+  font-size: 0.95rem;
+}
+
+/* --- Clients & Partners Section --- */
+.clients-partners {
+  background-color: var(--color-bg-secondary);
+  padding: 6rem 0;
+  border-top: 1px solid var(--color-border);
+}
+
+.clients-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  justify-items: center;
+}
+
+.client-card {
+  background-color: rgba(0, 0, 0, 0.4);
+  border: 1px solid var(--color-border);
+  padding: 2.5rem 2rem;
+  border-radius: 8px;
+  text-align: center;
+  width: 100%;
+  transition: all var(--transition-normal);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.client-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at center, rgba(237, 235, 230, 0.1) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity var(--transition-normal);
+}
+
+.client-card:hover {
+  transform: translateY(-10px);
+  border-color: rgba(237, 235, 230, 0.3);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.client-card:hover::before {
+  opacity: 1;
+}
+
+.client-img {
+  width: 100%;
+  max-width: 300px;
+  max-height: 180px;
+  object-fit: contain;
+  margin-bottom: 1.5rem;
+  transition: all var(--transition-normal);
+}
+
+.client-card h4 {
+  font-size: 1.2rem;
+  color: var(--color-text);
+  margin-bottom: 0.5rem;
+}
+
+.client-card p {
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+}
+
 /* --- Animations --- */
 .fade-in {
   opacity: 0;
@@ -315,4 +474,110 @@ footer {
 .gallery-item:hover .play-button {
   transform: translate(-50%, -50%) scale(1.1);
   background: rgba(0, 0, 0, 0.8);
+}
+
+.whatsapp-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.7rem;
+
+  padding: 0.95rem 2.2rem;
+  border-radius: 999px;
+
+  background: rgba(237, 235, 230, 0.08);
+  color: var(--color-text);
+  border: 1px solid rgba(237, 235, 230, 0.35);
+
+  box-shadow:
+    0 0 18px rgba(237, 235, 230, 0.12),
+    inset 0 0 12px rgba(237, 235, 230, 0.04);
+
+  backdrop-filter: blur(10px);
+  overflow: hidden;
+}
+
+.whatsapp-btn::before {
+  background: linear-gradient(120deg,
+      transparent,
+      rgba(37, 211, 102, 0.3),
+      transparent);
+}
+
+.whatsapp-btn:hover::before {
+  transform: translateX(100%);
+}
+
+.whatsapp-btn:hover {
+  color: #ffffff;
+  background: linear-gradient(135deg, #25D366, #1ebe5d);
+  border-color: #25D366;
+
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 0 30px rgba(37, 211, 102, 0.6),
+    0 10px 30px rgba(0, 0, 0, 0.35);
+}
+
+.whatsapp-icon {
+  position: relative;
+  z-index: 1;
+  font-size: 1.15rem;
+}
+
+.whatsapp-btn span,
+.whatsapp-btn {
+  z-index: 1;
+}
+
+.whatsapp-btn {
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+
+  background: rgba(237, 235, 230, 0.08);
+  color: var(--color-text);
+  border: 1px solid rgba(237, 235, 230, 0.35);
+
+  transition: color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Gradiente "vivo" */
+.whatsapp-btn::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(120deg,
+      #25D366 0%,
+      #1ebe5d 40%,
+      #25D366 70%,
+      #0f9d58 100%);
+
+  background-size: 200% 100%;
+  background-position: left;
+
+  opacity: 0;
+  transition: opacity 0.3s ease, background-position 0.6s ease;
+
+  z-index: -1;
+}
+
+/* Hover ativa o movimento */
+.whatsapp-btn:hover::after {
+  opacity: 1;
+  background-position: right;
+}
+
+.whatsapp-btn:hover {
+  color: #ffffff;
+  border-color: #25D366;
+
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 0 35px rgba(37, 211, 102, 0.5),
+    0 10px 30px rgba(0, 0, 0, 0.35);
 }

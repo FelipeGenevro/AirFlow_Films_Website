@@ -119,4 +119,26 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
     });
+
+    // Scroll Highlight for Differentials
+    const diffCards = document.querySelectorAll('.diff-card');
+    
+    if (diffCards.length > 0) {
+        const diffOptions = {
+            threshold: 0.6,
+            rootMargin: "0px 0px -15% 0px"
+        };
+
+        const diffObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('highlight-active');
+                } else {
+                    entry.target.classList.remove('highlight-active');
+                }
+            });
+        }, diffOptions);
+
+        diffCards.forEach(card => diffObserver.observe(card));
+    }
 });
