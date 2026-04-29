@@ -538,8 +538,8 @@ footer {
   z-index: 1;
 
   background: rgba(237, 235, 230, 0.08);
-  color: var(--color-text);
-  border: 1px solid rgba(237, 235, 230, 0.35);
+  color: #25D366;
+  border: 1px solid #25D366;
 
   transition: color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
 }
