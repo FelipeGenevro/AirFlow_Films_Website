@@ -74,6 +74,62 @@
             margin-right: auto;
         }
 
+        .rotating-text-container {
+            perspective: 1000px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 2.5rem;
+            margin-bottom: 2rem;
+            overflow: visible;
+        }
+
+        .rotating-text-inner {
+            display: inline-block;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #ef940c;
+            /* Eye-catching gold */
+            text-shadow: 0 0 15px rgba(250, 219, 95, 0.4);
+            transform-style: preserve-3d;
+            transform-origin: center center;
+            animation-duration: 0.6s;
+            animation-fill-mode: both;
+            animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        @keyframes rotateCubeIn {
+            0% {
+                transform: rotateX(90deg) translateZ(15px);
+                opacity: 0;
+            }
+
+            100% {
+                transform: rotateX(0deg) translateZ(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes rotateCubeOut {
+            0% {
+                transform: rotateX(0deg) translateZ(0);
+                opacity: 1;
+            }
+
+            100% {
+                transform: rotateX(-90deg) translateZ(15px);
+                opacity: 0;
+            }
+        }
+
+        .flip-in {
+            animation-name: rotateCubeIn;
+        }
+
+        .flip-out {
+            animation-name: rotateCubeOut;
+        }
+
         .hero-cta {
             display: flex;
             gap: 1rem;
@@ -191,8 +247,9 @@
         <div class="hero-overlay"></div>
         <div class="hero-content fade-in">
             <h1>Capture o Mundo <br> Visto de Cima</h1>
-            <p>Filmagem cinematográfica com drones e videografia aérea premium para aqueles que exigem o extraordinário.
-            </p>
+            <div class="rotating-text-container">
+                <span id="hero-rotating-text" class="rotating-text-inner flip-in">Filmagem de Imóveis</span>
+            </div>
             <div class="hero-cta">
                 <a href="portfolio.html" class="btn btn-primary">Ver Portfólio</a>
                 <a href="contact.html" class="btn btn-outline">Solicitar Orçamento</a>

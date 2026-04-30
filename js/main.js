@@ -122,7 +122,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Scroll Highlight for Differentials
     const diffCards = document.querySelectorAll('.diff-card');
-    
+
     if (diffCards.length > 0) {
         const diffOptions = {
             threshold: 0.6,
@@ -140,5 +140,36 @@ document.addEventListener('DOMContentLoaded', () => {
         }, diffOptions);
 
         diffCards.forEach(card => diffObserver.observe(card));
+    }
+
+    // Hero Text Rotation
+    const heroRotatingText = document.getElementById('hero-rotating-text');
+    if (heroRotatingText) {
+        const phrases = [
+            "Filmagem Imobiliária",
+            "Filmagem para Airbnb",
+            "Comerciais e anúncios",
+            "Filmagem Aérea",
+            "Roteirização + Edição",
+            "Propagandas Gerais",
+            "Trailers Cinematográficos"
+        ];
+        let currentPhraseIndex = 0;
+
+        setInterval(() => {
+            // Initiate the flip out
+            heroRotatingText.classList.remove('flip-in');
+            heroRotatingText.classList.add('flip-out');
+
+            // Wait for the flip-out animation to finish
+            setTimeout(() => {
+                currentPhraseIndex = (currentPhraseIndex + 1) % phrases.length;
+                heroRotatingText.textContent = phrases[currentPhraseIndex];
+
+                // Flip in with new text
+                heroRotatingText.classList.remove('flip-out');
+                heroRotatingText.classList.add('flip-in');
+            }, 600); // Matches the 0.6s animation duration
+        }, 3000); // Change text every 3 seconds
     }
 });
