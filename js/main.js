@@ -172,4 +172,43 @@ document.addEventListener('DOMContentLoaded', () => {
             }, 600); // Matches the 0.6s animation duration
         }, 3000); // Change text every 3 seconds
     }
+
+    // Particles effect
+    let particlesContainer = document.getElementById('particles-container');
+    if (!particlesContainer) {
+        particlesContainer = document.createElement('div');
+        particlesContainer.id = 'particles-container';
+        document.body.prepend(particlesContainer);
+    }
+
+    if (particlesContainer) {
+        const particleCount = 65;
+
+        for (let i = 0; i < particleCount; i++) {
+            const particle = document.createElement('div');
+            particle.classList.add('particle');
+
+            const size = Math.random() * 2 + 1; // 1px to 3px
+            particle.style.width = `${size}px`;
+            particle.style.height = `${size}px`;
+
+            const posX = Math.random() * 100;
+            const posY = Math.random() * 100;
+            particle.style.left = `${posX}vw`;
+            particle.style.top = `${posY}vh`;
+
+            const opacity = Math.random() * 0.4 + 0.1; // 0.1 to 0.5
+            particle.style.opacity = opacity;
+
+            const duration = Math.random() * 20 + 20; // 20s to 40s (slow float)
+            const delay = Math.random() * -40; // Start at random point in animation
+
+            particle.style.animation = `floatParticle ${duration}s ${delay}s infinite ease-in-out`;
+
+            particle.style.setProperty('--tx', `${(Math.random() - 0.5) * 300}px`);
+            particle.style.setProperty('--ty', `${(Math.random() - 0.5) * 300}px`);
+
+            particlesContainer.appendChild(particle);
+        }
+    }
 });
