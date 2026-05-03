@@ -146,30 +146,26 @@ document.addEventListener('DOMContentLoaded', () => {
     const heroRotatingText = document.getElementById('hero-rotating-text');
     if (heroRotatingText) {
         const phrases = [
-            "Filmagem Imobiliária",
-            "Filmagem para Airbnb",
-            "Comerciais e anúncios",
-            "Filmagem Aérea",
-            "Roteirização + Edição",
-            "Propagandas Gerais",
-            "Trailers Cinematográficos"
+            "Imobiliário de alto padrão",
+            "Hotelaria & Experiências",
+            "Arquitetura & Design"
         ];
         let currentPhraseIndex = 0;
 
         setInterval(() => {
-            // Initiate the flip out
-            heroRotatingText.classList.remove('flip-in');
-            heroRotatingText.classList.add('flip-out');
+            // Initiate the slide out
+            heroRotatingText.classList.remove('slide-in');
+            heroRotatingText.classList.add('slide-out');
 
-            // Wait for the flip-out animation to finish
+            // Wait for the slide-out animation to finish
             setTimeout(() => {
                 currentPhraseIndex = (currentPhraseIndex + 1) % phrases.length;
                 heroRotatingText.textContent = phrases[currentPhraseIndex];
 
-                // Flip in with new text
-                heroRotatingText.classList.remove('flip-out');
-                heroRotatingText.classList.add('flip-in');
-            }, 600); // Matches the 0.6s animation duration
+                // Slide in with new text
+                heroRotatingText.classList.remove('slide-out');
+                heroRotatingText.classList.add('slide-in');
+            }, 800); // Matches the 0.8s animation duration
         }, 3000); // Change text every 3 seconds
     }
 
@@ -182,7 +178,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     if (particlesContainer) {
-        const particleCount = 65;
+        const particleCount = 200;
 
         for (let i = 0; i < particleCount; i++) {
             const particle = document.createElement('div');

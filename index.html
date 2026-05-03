@@ -89,46 +89,47 @@
             display: inline-block;
             font-size: 1.8rem;
             font-weight: 700;
-            color: #ef940c;
-            /* Eye-catching gold */
-            text-shadow: 0 0 15px rgba(250, 219, 95, 0.4);
-            transform-style: preserve-3d;
-            transform-origin: center center;
-            animation-duration: 0.6s;
+            color: #95acf5f6;
+            text-shadow: 0 0 15px rgba(149, 172, 245, 0.4);
+            animation-duration: 0.8s;
             animation-fill-mode: both;
-            animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+            animation-timing-function: cubic-bezier(0.2, 0.8, 0.2, 1);
         }
 
-        @keyframes rotateCubeIn {
+        @keyframes textSlideIn {
             0% {
-                transform: rotateX(90deg) translateZ(15px);
+                transform: translateY(20px);
                 opacity: 0;
+                filter: blur(4px);
             }
 
             100% {
-                transform: rotateX(0deg) translateZ(0);
+                transform: translateY(0);
                 opacity: 1;
+                filter: blur(0);
             }
         }
 
-        @keyframes rotateCubeOut {
+        @keyframes textSlideOut {
             0% {
-                transform: rotateX(0deg) translateZ(0);
+                transform: translateY(0);
                 opacity: 1;
+                filter: blur(0);
             }
 
             100% {
-                transform: rotateX(-90deg) translateZ(15px);
+                transform: translateY(-20px);
                 opacity: 0;
+                filter: blur(4px);
             }
         }
 
-        .flip-in {
-            animation-name: rotateCubeIn;
+        .slide-in {
+            animation-name: textSlideIn;
         }
 
-        .flip-out {
-            animation-name: rotateCubeOut;
+        .slide-out {
+            animation-name: textSlideOut;
         }
 
         .hero-cta {
@@ -229,8 +230,8 @@
                 class="logo-img"></a>
         <ul class="nav-links">
             <li><a href="index.html">Início</a></li>
-            <li><a href="services.html">Serviços</a></li>
-            <li><a href="portfolio.html">Portfólio</a></li>
+            <li><a href="services.html">Aplicações</a></li>
+            <li><a href="portfolio.html">Projetos</a></li>
             <li><a href="about.html">Sobre</a></li>
             <li><a href="contact.html">Contato</a></li>
         </ul>
@@ -249,7 +250,7 @@
         <div class="hero-content fade-in">
             <h1>Capture o Mundo <br> Visto de Cima</h1>
             <div class="rotating-text-container">
-                <span id="hero-rotating-text" class="rotating-text-inner flip-in">Filmagem de Imóveis</span>
+                <span id="hero-rotating-text" class="rotating-text-inner slide-in">Marcas & Campanhas</span>
             </div>
             <div class="hero-cta">
                 <a href="portfolio.html" class="btn btn-primary">Ver Portfólio</a>
@@ -340,22 +341,24 @@
                     <a href="index.html" class="logo-img-link">
                         <img src="assets/images/Logo_AirFlow.jpg" alt="AirFlow Films Logo" class="logo-img">
                     </a>
-                    <p>Elevando sua visão. Filmagens cinematográficas de alto padrão para quem exige o extraordinário.</p>
+                    <p>Elevando sua visão. Filmagens cinematográficas de alto padrão para quem exige o extraordinário.
+                    </p>
                 </div>
                 <div class="footer-links">
                     <h4>Navegação</h4>
                     <ul>
                         <li><a href="index.html">Início</a></li>
-                        <li><a href="services.html">Serviços</a></li>
-                        <li><a href="portfolio.html">Portfólio</a></li>
-                        <li><a href="about.html">Sobre Nós</a></li>
+                        <li><a href="services.html">Aplicações</a></li>
+                        <li><a href="portfolio.html">Projetos</a></li>
+                        <li><a href="about.html">Sobre</a></li>
                         <li><a href="contact.html">Contato</a></li>
                     </ul>
                 </div>
                 <div class="footer-social">
                     <h4>Nossas Redes</h4>
                     <div class="social-icons">
-                        <a href="https://www.instagram.com/airflowfilms?igsh=MTQ2YXR0M2JzcWpoZg%3D%3D&utm_source=qr" target="_blank" class="social-btn">Instagram</a>
+                        <a href="https://www.instagram.com/airflowfilms?igsh=MTQ2YXR0M2JzcWpoZg%3D%3D&utm_source=qr"
+                            target="_blank" class="social-btn">Instagram</a>
                         <a href="https://www.youtube.com/@AirflowFilms" target="_blank" class="social-btn">YouTube</a>
                         <a href="https://www.tiktok.com/@airflowfilms" target="_blank" class="social-btn">TikTok</a>
                     </div>
