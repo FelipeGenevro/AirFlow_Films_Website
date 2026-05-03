@@ -178,7 +178,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     if (particlesContainer) {
-        const particleCount = 200;
+        const particleCount = 100;
 
         for (let i = 0; i < particleCount; i++) {
             const particle = document.createElement('div');
