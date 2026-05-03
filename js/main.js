@@ -206,5 +206,37 @@ document.addEventListener('DOMContentLoaded', () => {
 
             particlesContainer.appendChild(particle);
         }
+
+        // Shooting Stars Effect
+        setInterval(() => {
+            const star = document.createElement('div');
+            star.classList.add('shooting-star');
+
+            // Randomly spawn from either top edge or right edge
+            const spawnFromTop = Math.random() > 0.5;
+            let startX, startY;
+
+            if (spawnFromTop) {
+                startX = Math.random() * window.innerWidth;
+                startY = -50;
+            } else {
+                startX = window.innerWidth + 50;
+                startY = Math.random() * window.innerHeight;
+            }
+
+            star.style.left = `${startX}px`;
+            star.style.top = `${startY}px`;
+
+            const duration = Math.random() * 1.5 + 1.5;
+            star.style.animation = `shootStar ${duration}s linear forwards`;
+
+            particlesContainer.appendChild(star);
+
+            // Clean up
+            setTimeout(() => {
+                star.remove();
+            }, duration * 1000);
+
+        }, 4000);
     }
 });

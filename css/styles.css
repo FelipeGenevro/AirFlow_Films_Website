@@ -26,6 +26,7 @@ body {
   color: var(--color-text);
   line-height: 1.6;
   overflow-x: hidden;
+  text-shadow: 0 0 5px rgba(237, 235, 230, 0.15), 0 0 15px rgba(237, 235, 230, 0.05);
 }
 
 a {
@@ -46,6 +47,7 @@ h5,
 h6 {
   font-weight: 700;
   line-height: 1.2;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.2), 0 0 30px rgba(237, 235, 230, 0.15);
 }
 
 h1 {
@@ -196,56 +198,12 @@ section {
   padding: 5rem 0;
 }
 
-/* --- Differentials Section --- */
-.differentials {
-  background-color: var(--color-bg);
-  background-image: 
-    linear-gradient(rgba(237, 235, 230, 0.025) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(237, 235, 230, 0.025) 1px, transparent 1px);
-  background-size: 50px 50px;
-  background-position: center center;
-  padding: 6rem 0;
-  border-top: 1px solid var(--color-border);
-}
 
-.differentials-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 2rem;
-}
-
-.diff-card {
-  background: transparent;
-  border-left: 3px solid var(--color-accent);
-  padding: 1.5rem 2rem;
-  transition: all var(--transition-normal);
-}
-
-.diff-card:hover {
-  background: rgba(237, 235, 230, 0.03);
-  transform: translateX(10px);
-}
-
-.diff-icon {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
-}
-
-.diff-card h3 {
-  font-size: 1.2rem;
-  margin-bottom: 0.5rem;
-  color: var(--color-text);
-}
-
-.diff-card p {
-  color: var(--color-text-muted);
-  font-size: 0.95rem;
-}
 
 /* --- Differentials Section --- */
 .differentials {
   background-color: var(--color-bg);
-  background-image: 
+  background-image:
     linear-gradient(rgba(237, 235, 230, 0.025) 1px, transparent 1px),
     linear-gradient(90deg, rgba(237, 235, 230, 0.025) 1px, transparent 1px);
   background-size: 50px 50px;
@@ -290,8 +248,10 @@ section {
 }
 
 .diff-card p {
-  color: var(--color-text-muted);
-  font-size: 0.95rem;
+  color: var(--color-text);
+  font-size: 1.05rem;
+  line-height: 1.6;
+  opacity: 0.85;
 }
 
 /* --- Clients & Partners Section --- */
@@ -301,68 +261,62 @@ section {
   border-top: 1px solid var(--color-border);
 }
 
-.clients-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+.clients-carousel {
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+  /* Soft fading edges for the carousel */
+  mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  padding: 1rem 0;
+}
+
+.clients-track {
+  display: flex;
   gap: 2rem;
-  justify-items: center;
+  width: max-content;
+  animation: scrollClients 20s linear infinite;
+}
+
+.clients-track:hover {
+  animation-play-state: paused;
+}
+
+.clients-set {
+  display: flex;
+  gap: 2rem;
+}
+
+@keyframes scrollClients {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-50% - 1rem)); /* -50% of track minus half the gap between sets */
+  }
 }
 
 .client-card {
-  background-color: rgba(0, 0, 0, 0.4);
-  border: 1px solid var(--color-border);
-  padding: 2.5rem 2rem;
-  border-radius: 8px;
-  text-align: center;
-  width: 100%;
-  transition: all var(--transition-normal);
+  width: 250px;
+  flex-shrink: 0;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  position: relative;
-  overflow: hidden;
-}
-
-.client-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: radial-gradient(circle at center, rgba(237, 235, 230, 0.1) 0%, transparent 70%);
-  opacity: 0;
-  transition: opacity var(--transition-normal);
-}
-
-.client-card:hover {
-  transform: translateY(-10px);
-  border-color: rgba(237, 235, 230, 0.3);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-}
-
-.client-card:hover::before {
-  opacity: 1;
+  justify-content: center;
+  padding: 1rem;
 }
 
 .client-img {
   width: 100%;
-  max-width: 300px;
-  max-height: 180px;
+  max-width: 200px;
+  max-height: 100px;
   object-fit: contain;
-  margin-bottom: 1.5rem;
   transition: all var(--transition-normal);
+  filter: grayscale(100%) opacity(0.6);
 }
 
-.client-card h4 {
-  font-size: 1.2rem;
-  color: var(--color-text);
-  margin-bottom: 0.5rem;
-}
-
-.client-card p {
-  font-size: 0.95rem;
-  color: var(--color-text-muted);
+.client-card:hover .client-img {
+  filter: grayscale(0%) opacity(1);
+  transform: scale(1.05);
 }
 
 /* --- Animations --- */
@@ -422,7 +376,7 @@ section {
   border-top: 1px solid var(--color-border);
   position: relative;
   z-index: 10;
-  background-image: 
+  background-image:
     linear-gradient(rgba(237, 235, 230, 0.025) 1px, transparent 1px),
     linear-gradient(90deg, rgba(237, 235, 230, 0.025) 1px, transparent 1px);
   background-size: 50px 50px;
@@ -448,7 +402,8 @@ section {
   line-height: 1.8;
 }
 
-.footer-links h4, .footer-social h4 {
+.footer-links h4,
+.footer-social h4 {
   font-size: 1.2rem;
   margin-bottom: 1.5rem;
   position: relative;
@@ -456,7 +411,8 @@ section {
   color: var(--color-text);
 }
 
-.footer-links h4::after, .footer-social h4::after {
+.footer-links h4::after,
+.footer-social h4::after {
   content: '';
   position: absolute;
   left: 0;
@@ -526,16 +482,17 @@ section {
     grid-template-columns: 1fr;
     text-align: center;
   }
-  
+
   .footer-about p {
     margin: 0 auto;
   }
-  
-  .footer-links h4::after, .footer-social h4::after {
+
+  .footer-links h4::after,
+  .footer-social h4::after {
     left: 50%;
     transform: translateX(-50%);
   }
-  
+
   .social-icons {
     align-items: center;
   }
@@ -710,13 +667,49 @@ section {
 }
 
 @keyframes floatParticle {
-  0%, 100% {
-      transform: translate(0, 0);
+
+  0%,
+  100% {
+    transform: translate(0, 0);
   }
+
   33% {
-      transform: translate(var(--tx), var(--ty));
+    transform: translate(var(--tx), var(--ty));
   }
+
   66% {
-      transform: translate(calc(var(--tx) * -0.5), calc(var(--ty) * 1.5));
+    transform: translate(calc(var(--tx) * -0.5), calc(var(--ty) * 1.5));
+  }
+}
+
+/* --- Shooting Stars --- */
+.shooting-star {
+  position: absolute;
+  width: 150px;
+  height: 2px;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 1) 0%, transparent 100%);
+  border-radius: 50%;
+  pointer-events: none;
+  opacity: 0;
+  box-shadow: 0 0 10px 1px rgba(255, 255, 255, 0.4);
+}
+
+@keyframes shootStar {
+  0% {
+    transform: translateX(0) translateY(0) rotate(-45deg);
+    opacity: 0;
+  }
+
+  10% {
+    opacity: 1;
+  }
+
+  80% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateX(-200vw) translateY(200vw) rotate(-45deg);
+    opacity: 0;
   }
 }
