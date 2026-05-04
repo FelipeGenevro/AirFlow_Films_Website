@@ -1,0 +1,24 @@
+# Ignore Videos
+*.mp4
+*.MP4
+*.mov
+*.MOV
+*.avi
+*.mkv
+assets/Videos/
+
+# Ignore Images
+*.jpg
+*.JPG
+*.jpeg
+*.JPEG
+*.png
+*.PNG
+*.gif
+*.GIF
+*.svg
+*.webp
+assets/images/
+
+# MacOS
+.DS_Store

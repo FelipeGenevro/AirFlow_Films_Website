@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AirFlow Films | Drone Cinematography</title>
+    <title>AirFlow Films | Filmagens Institucionais e Cinematográficas</title>
     <meta name="description"
-        content="AirFlow Films oferece filmagens aéreas com drones premium e serviços cinematográficos. Capture o mundo por cima com a nossa abordagem exclusiva.">
+        content="AirFlow Films oferece filmagens aéreas com drones e serviços cinematográficos. Capture o mundo por cima com a nossa abordagem exclusiva.">
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -89,7 +89,7 @@
             display: inline-block;
             font-size: 1.8rem;
             font-weight: 700;
-            color: #95acf5f6;
+            color: #a1a5b3f6;
             text-shadow: 0 0 15px rgba(149, 172, 245, 0.4);
             animation-duration: 0.8s;
             animation-fill-mode: both;
@@ -168,11 +168,14 @@
 
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
             gap: 2rem;
         }
 
         .service-card {
+            display: block;
+            text-decoration: none;
+            color: inherit;
             background-color: var(--color-bg-secondary);
             border: 1px solid var(--color-border);
             padding: 2.5rem 2rem;
@@ -271,27 +274,36 @@
     <section class="overview">
         <div class="container">
             <div class="section-header fade-in">
-                <h2>Nossas Especialidades</h2>
+                <h2>Onde Atuamos</h2>
             </div>
             <div class="services-grid">
-                <div class="service-card fade-in">
-                    <div class="service-icon"><img src="assets/images/Arquitetura_Icon_Especialidades.png"
-                            alt="Filmagem Aérea"></div>
-                    <h3>Arquitetura & Design</h3>
-                    <p>Imagens cinematográficas de alto nível com drones para comerciais, filmes e documentários.</p>
-                </div>
-                <div class="service-card fade-in" style="transition-delay: 0.1s;">
+                <a href="services.html" class="service-card fade-in" style="transition-delay: 0.2s;">
+                    <div class="service-icon"><img src="assets/images/Comercios_Icon_Especialidades.png"
+                            alt="Marcas & Campanhas"></div>
+                    <h3>Marcas & Campanhas</h3>
+                    <p>Narrativas visuais que capturam a essência da sua marca.</p>
+                </a>
+
+                <a href="services.html" class="service-card fade-in" style="transition-delay: 0.1s;">
                     <div class="service-icon"><img src="assets/images/imobiliaria_Icon_Especialidades.png"
                             alt="Mercado Imobiliário"></div>
                     <h3>Mercado Imobiliário</h3>
-                    <p>Vistas aéreas de tirar o fôlego que destacam propriedades de luxo e grandes empreendimentos.</p>
-                </div>
-                <div class="service-card fade-in" style="transition-delay: 0.2s;">
-                    <div class="service-icon"><img src="assets/images/Comercios_Icon_Especialidades.png"
-                            alt="Comerciais"></div>
-                    <h3>Comerciais</h3>
-                    <p>Cenas dinâmicas e roteiros perfeitos para comercios, anúncios e propragandas.</p>
-                </div>
+                    <p>Elevamos imóveis a um novo patamar de visibilidade.</p>
+                </a>
+
+                <a href="services.html" class="service-card fade-in">
+                    <div class="service-icon"><img src="assets/images/Hotelaria_Icon_Especialidades.png"
+                            alt="Hotelaria & Experiências"></div>
+                    <h3>Hotelaria & Experiências</h3>
+                    <p>Design que acolhe. Histórias que ficam.</p>
+                </a>
+
+                <a href="services.html" class="service-card fade-in">
+                    <div class="service-icon"><img src="assets/images/Arquitetura_Icon_Especialidades.png"
+                            alt="Arquitetura & Design"></div>
+                    <h3>Arquitetura & Design</h3>
+                    <p>Transforme cada projeto em uma experiência visual memorável.</p>
+                </a>
             </div>
         </div>
     </section>
@@ -303,17 +315,17 @@
             </div>
             <div class="differentials-grid">
                 <div class="diff-card fade-in">
-                    <div class="diff-icon">👁️</div>
+                    <div class="diff-icon"><img src="assets/images/Direcao_Icon_Diferenciais.png" alt="Direção"></div>
                     <h3>Direção acima de captação</h3>
                     <p>A maioria apenas registra.<br>Nós decidimos o que merece ser visto.</p>
                 </div>
                 <div class="diff-card fade-in" style="transition-delay: 0.1s;">
-                    <div class="diff-icon">🎯</div>
+                    <div class="diff-icon"><img src="assets/images/Precisao_Icon_Diferenciais.png" alt="Precisão"></div>
                     <h3>Menos, com precisão</h3>
                     <p>O excesso dilui valor.<br>O que permanece, posiciona.</p>
                 </div>
                 <div class="diff-card fade-in" style="transition-delay: 0.2s;">
-                    <div class="diff-icon">💥</div>
+                    <div class="diff-icon"><img src="assets/images/impacto_Icon_Diferenciais.png" alt="Impacto"></div>
                     <h3>Impacto imediato</h3>
                     <p>Atenção não é dada.<br>É tomada nos primeiros segundos.</p>
                 </div>
@@ -331,47 +343,60 @@
                     <!-- SET 1 -->
                     <div class="clients-set">
                         <div class="client-card">
-                            <img src="assets/images/Logo_Cliente_CentroEuropeu.png" alt="Centro Europeu" class="client-img">
+                            <img src="assets/images/Logo_Cliente_CentroEuropeu.png" alt="Centro Europeu"
+                                class="client-img">
                         </div>
                         <div class="client-card">
-                            <img src="assets/images/Logo_Cliente_EstarEuropeu.png" alt="Estar Europeu" class="client-img">
+                            <img src="assets/images/Logo_Cliente_EstarEuropeu.png" alt="Estar Europeu"
+                                class="client-img">
                         </div>
                         <div class="client-card">
-                            <img src="assets/images/Logo_Cliente_CentroEuropeu.png" alt="Centro Europeu" class="client-img">
+                            <img src="assets/images/Logo_Cliente_CentroEuropeu.png" alt="Centro Europeu"
+                                class="client-img">
                         </div>
                         <div class="client-card">
-                            <img src="assets/images/Logo_Cliente_EstarEuropeu.png" alt="Estar Europeu" class="client-img">
+                            <img src="assets/images/Logo_Cliente_EstarEuropeu.png" alt="Estar Europeu"
+                                class="client-img">
                         </div>
                         <div class="client-card">
-                            <img src="assets/images/Logo_Cliente_CentroEuropeu.png" alt="Centro Europeu" class="client-img">
+                            <img src="assets/images/Logo_Cliente_CentroEuropeu.png" alt="Centro Europeu"
+                                class="client-img">
                         </div>
                         <div class="client-card">
-                            <img src="assets/images/Logo_Cliente_EstarEuropeu.png" alt="Estar Europeu" class="client-img">
+                            <img src="assets/images/Logo_Cliente_EstarEuropeu.png" alt="Estar Europeu"
+                                class="client-img">
                         </div>
                     </div>
                     <!-- SET 2 (Clone) -->
                     <div class="clients-set">
                         <div class="client-card">
-                            <img src="assets/images/Logo_Cliente_CentroEuropeu.png" alt="Centro Europeu" class="client-img">
+                            <img src="assets/images/Logo_Cliente_CentroEuropeu.png" alt="Centro Europeu"
+                                class="client-img">
                         </div>
                         <div class="client-card">
-                            <img src="assets/images/Logo_Cliente_EstarEuropeu.png" alt="Estar Europeu" class="client-img">
+                            <img src="assets/images/Logo_Cliente_EstarEuropeu.png" alt="Estar Europeu"
+                                class="client-img">
                         </div>
                         <div class="client-card">
-                            <img src="assets/images/Logo_Cliente_CentroEuropeu.png" alt="Centro Europeu" class="client-img">
+                            <img src="assets/images/Logo_Cliente_CentroEuropeu.png" alt="Centro Europeu"
+                                class="client-img">
                         </div>
                         <div class="client-card">
-                            <img src="assets/images/Logo_Cliente_EstarEuropeu.png" alt="Estar Europeu" class="client-img">
+                            <img src="assets/images/Logo_Cliente_EstarEuropeu.png" alt="Estar Europeu"
+                                class="client-img">
                         </div>
                         <div class="client-card">
-                            <img src="assets/images/Logo_Cliente_CentroEuropeu.png" alt="Centro Europeu" class="client-img">
+                            <img src="assets/images/Logo_Cliente_CentroEuropeu.png" alt="Centro Europeu"
+                                class="client-img">
                         </div>
                         <div class="client-card">
-                            <img src="assets/images/Logo_Cliente_EstarEuropeu.png" alt="Estar Europeu" class="client-img">
+                            <img src="assets/images/Logo_Cliente_EstarEuropeu.png" alt="Estar Europeu"
+                                class="client-img">
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
     </section>
 
     <footer class="main-footer">

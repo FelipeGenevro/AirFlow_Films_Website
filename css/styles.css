@@ -220,25 +220,33 @@ section {
 
 .diff-card {
   background: transparent;
-  border-left: 3px solid rgba(237, 235, 230, 0.2);
   padding: 1.5rem 2rem;
   transition: all 0.6s cubic-bezier(0.25, 1, 0.5, 1);
   opacity: 0.3;
   transform: scale(0.95) translateY(20px);
+  text-align: center;
 }
 
 .diff-card.highlight-active,
 .diff-card:hover {
   background: rgba(237, 235, 230, 0.05);
-  transform: scale(1) translateY(0) translateX(10px);
+  transform: scale(1) translateY(-10px);
   opacity: 1;
-  border-left-color: var(--color-accent);
-  box-shadow: -10px 10px 30px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 
 .diff-icon {
   font-size: 2.5rem;
   margin-bottom: 1rem;
+  display: flex;
+  justify-content: center;
+}
+
+.diff-icon img {
+  width: 130px;
+  height: 130px;
+  object-fit: contain;
+  filter: drop-shadow(0 0 10px rgba(237, 235, 230, 0.4));
 }
 
 .diff-card h3 {
@@ -710,6 +718,34 @@ section {
 
   100% {
     transform: translateX(-200vw) translateY(200vw) rotate(-45deg);
+    opacity: 0;
+  }
+}
+
+/* --- Twinkling Stars --- */
+.twinkle-star {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  background-color: #fff;
+  border-radius: 50%;
+  box-shadow: 0 0 10px 3px rgba(255, 255, 255, 0.8);
+  animation: twinkle 1s ease-in-out forwards;
+  pointer-events: none;
+  z-index: 0;
+}
+
+@keyframes twinkle {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.5);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0);
     opacity: 0;
   }
 }

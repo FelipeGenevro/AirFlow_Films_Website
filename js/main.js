@@ -238,5 +238,25 @@ document.addEventListener('DOMContentLoaded', () => {
             }, duration * 1000);
 
         }, 4000);
+
+        // Twinkling Stars Effect
+        setInterval(() => {
+            const twinkle = document.createElement('div');
+            twinkle.classList.add('twinkle-star');
+
+            const posX = Math.random() * window.innerWidth;
+            const posY = Math.random() * window.innerHeight;
+
+            twinkle.style.left = `${posX}px`;
+            twinkle.style.top = `${posY}px`;
+
+            particlesContainer.appendChild(twinkle);
+
+            // Clean up after 1 second
+            setTimeout(() => {
+                twinkle.remove();
+            }, 1000);
+
+        }, 1500); // spawn a new twinkle every 500ms
     }
 });
