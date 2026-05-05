@@ -56,8 +56,14 @@
 <pre>
 AirFlow-Films/
 ├── index.html
-├── style.css
-├── script.js
+├── about.html
+├── contact.html
+├── portfolio.html
+├── services.html
+├── css
+  └── styles.css
+├── js
+  └── main.js
 └── README.md
 </pre>
 
