@@ -33,7 +33,7 @@
 
         .service-detail {
             display: flex;
-            align-items: center;
+            align-items: flex-start;
             gap: 4rem;
             margin-bottom: 8rem;
         }
@@ -64,23 +64,85 @@
             font-size: 1.1rem;
         }
 
-        .service-text ul {
+        .service-text .service-list {
             margin-bottom: 2rem;
         }
 
-        .service-text ul li {
-            position: relative;
-            padding-left: 1.5rem;
-            margin-bottom: 0.8rem;
-            color: var(--color-text-muted);
+        .service-text details {
+            margin-bottom: 0.5rem;
+            border-bottom: 1px solid rgba(237, 235, 230, 0.05);
+            padding-bottom: 0.5rem;
+            transition: all var(--transition-normal);
         }
 
-        .service-text ul li::before {
+        .service-text summary {
+            list-style: none;
+            cursor: pointer;
+            padding: 0.5rem 0;
+            color: var(--color-text-muted);
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            transition: color var(--transition-fast);
+            position: relative;
+        }
+
+        .service-text summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .service-text summary::before {
             content: '▹';
-            position: absolute;
-            left: 0;
             color: var(--color-accent);
             font-weight: bold;
+            transition: transform var(--transition-normal);
+        }
+
+        .service-text details[open] summary::before {
+            transform: rotate(90deg);
+        }
+
+        .service-text details[open] summary {
+            color: var(--color-accent);
+        }
+
+        .service-text summary:hover {
+            color: var(--color-accent);
+        }
+
+        .service-text .details-wrapper {
+            display: grid;
+            grid-template-rows: 0fr;
+            transition: grid-template-rows 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .service-text details[open] .details-wrapper {
+            grid-template-rows: 1fr;
+        }
+
+        .service-text .details-content {
+            padding: 0 0 1rem 1.5rem;
+            font-size: 0.95rem;
+            color: var(--color-text-muted);
+            line-height: 1.6;
+            overflow: hidden;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .service-text details[open] .details-content {
+            animation: slideDown 0.5s ease forwards;
         }
 
         .service-visual {
@@ -148,7 +210,8 @@
     <header class="page-header fade-in">
         <div class="container">
             <h1>Nossos Serviços</h1>
-            <p>Direção Visual para quem entende que imagem constrói valor.</p>
+            <p>Produção audiovisual com direção estratégica, combinando cinematografia aérea e terrestre para construir
+                percepção, posicionamento e presença visual.</p>
         </div>
     </header>
 
@@ -160,11 +223,30 @@
                 <p>Fornecemos imagens aéreas de alta resolução para comerciais, anúncios, redes sociais, entre outros.
                     Nossos drones de alta tecnologia garantem imagens de alta qualidade, tanto em ambientes externos
                     quanto internos, noturnos ou diurnos.</p>
-                <ul>
-                    <li>Gravação + edição em resolução de até 4K</li>
-                    <li>Configuração de Operador Duplo (Piloto + Operador de Câmera)</li>
-                    <li>Rastreamento cinematográfico (Visão em Primeira Pessoa)</li>
-                </ul>
+                <div class="service-list">
+                    <details>
+                        <summary>Gravação + edição em resolução de até 4K</summary>
+                        <div class="details-wrapper">
+                            <p class="details-content">Captura de alta fidelidade e pós-produção profissional para um
+                                resultado cinematográfico impecável.</p>
+                        </div>
+                    </details>
+                    <details>
+                        <summary>Configuração de Operador Duplo</summary>
+                        <div class="details-wrapper">
+                            <p class="details-content">Precisão absoluta com um piloto dedicado à navegação e um
+                                operador
+                                focado exclusivamente no olhar artístico da câmera.</p>
+                        </div>
+                    </details>
+                    <details>
+                        <summary>Rastreamento cinematográfico (Visão em Primeira Pessoa)</summary>
+                        <div class="details-wrapper">
+                            <p class="details-content">Manobras ágeis e proximidade extrema com drones para vídeos
+                                imersivos.</p>
+                        </div>
+                    </details>
+                </div>
                 <a href="contact.html" class="btn btn-outline">Solicitar Orçamento</a>
             </div>
             <div class="service-visual">
@@ -176,16 +258,39 @@
 
         <div class="service-detail fade-in">
             <div class="service-text">
-                <h2><span>🏢</span>Filmagem Imobiliária</h2>
-                <p>Transforme a forma como as propriedades são apresentadas. Capturamos revelações aéreas deslumbrantes,
-                    contexto da vizinhança e sobrevoos interiores suaves que dão aos potenciais compradores uma
-                    verdadeira noção de escala e luxo.</p>
-                <ul>
-                    <li>Captação de áudio e roteirização de vídeos</li>
-                    <li>Gravação + edição em resolução de até 4K</li>
-                    <li>Tours Virtuais 360° e Panoramas</li>
-                    <li>Destaque dos limites da propriedade</li>
-                </ul>
+                <h2><span>🏢</span>Imobiliária de Alto Padrão</h2>
+                <p>Valor percebido no primeiro olhar.
+                    Direção visual pensada para posicionar antes mesmo da visita.</p>
+                <div class="service-list">
+                    <details>
+                        <summary>Lançamentos imobiliários</summary>
+                        <div class="details-wrapper">
+                            <p class="details-content">Construímos narrativas visuais que despertam interesse imediato e
+                                atraem um público mais qualificado desde o início.</p>
+                        </div>
+                    </details>
+                    <details>
+                        <summary>Imóveis prontos</summary>
+                        <div class="details-wrapper">
+                            <p class="details-content">Direcionamos enquadramento, luz e movimento para evidenciar
+                                diferenciais e sustentar o valor percebido do imóvel.</p>
+                        </div>
+                    </details>
+                    <details>
+                        <summary>Tours Virtuais 360° e Panoramas</summary>
+                        <div class="details-wrapper">
+                            <p class="details-content">Experiência imersiva completa que permite ao cliente explorar o
+                                imóvel remotamente com total realismo.</p>
+                        </div>
+                    </details>
+                    <details>
+                        <summary>Experiência de visita</summary>
+                        <div class="details-wrapper">
+                            <p class="details-content">Fluxos visuais que simulam presença e reduzem objeções antes do
+                                contato físico com o espaço.</p>
+                        </div>
+                    </details>
+                </div>
                 <a href="contact.html" class="btn btn-outline">Solicitar Orçamento</a>
             </div>
             <div class="service-visual">
@@ -197,15 +302,26 @@
 
         <div class="service-detail fade-in">
             <div class="service-text">
-                <h2><span>🏬</span> Anúncios para Comércios e Empresas</h2>
-                <p>Promova seu negócio com vídeos dinâmicos e profissionais. Criamos anúncios envolventes para produtos,
-                    serviços, estabelecimentos comerciais e eventos corporativos, destacando o que torna seu
-                    empreendimento único.</p>
-                <ul>
-                    <li>Roteirização + Gravação + Captação de áudio + Edição</li>
-                    <li>Captura de imagens áereas e internas em 4k</li>
-                    <li>Anúncios de produtos de forma dinâmica</li>
-                </ul>
+                <h2><span>🏬</span> Marcas & Campanhas</h2>
+                <p>Presença que se impõe.
+                    Direção visual para marcas que tratam percepção como ativo.</p>
+                <div class="service-list">
+                    <details>
+                        <summary>Filmes Institucionais</summary>
+                        <div class="details-wrapper">
+                            <p class="details-content">Organizamos mensagem, ritmo e linguagem visual para transmitir
+                                autoridade, consistência e clareza.</p>
+                        </div>
+                    </details>
+                    <details>
+                        <summary>Lançamentos & ativações</summary>
+                        <div class="details-wrapper">
+                            <p class="details-content">Narrativas visuais pensadas para criar antecipação, ampliar
+                                engajamento e fortalecer presença desde o primeiro contato.
+                            </p>
+                        </div>
+                    </details>
+                </div>
                 <a href="contact.html" class="btn btn-outline">Solicitar Orçamento</a>
             </div>
             <div class="service-visual">
@@ -217,15 +333,52 @@
 
         <div class="service-detail fade-in">
             <div class="service-text">
-                <h2><span>🏡</span> Conteúdo para Airbnb, Chácaras e Hospedagens</h2>
-                <p>Valorize sua propriedade com fotos e videos profissionais para atrair mais reservas e valor de
-                    diária. Valorizamos os pontos fortes de sua propriedade, desde lazer, decoração e localização.</p>
-                <ul>
-                    <li>Fotos, vídeos e comerciais em 4k para seu hotel. </li>
-                    <li>Marketing para divulgações em redes sociais </li>
-                    <li>Gravação de tour virtual 360º</li>
-                    <li>Takes internos e externos para postagem em plataformas de reserva</li>
-                </ul>
+                <h2><span>🏡</span> Hotelaria & Experiências</h2>
+                <p>Antes da escolha, a sensação.
+                    A decisão começa no que se vê.
+                </p>
+                <div class="service-list">
+                    <details>
+                        <summary>Hotéis & resorts</summary>
+                        <div class="details-wrapper">
+                            <p class="details-content">Composições que comunicam conforto, atmosfera e exclusividade —
+                                aumentando o desejo antes da reserva.</p>
+                        </div>
+                    </details>
+                    <details>
+                        <summary>Experiência & destinos</summary>
+                        <div class="details-wrapper">
+                            <p class="details-content">Direcionamos a percepção visual para transmitir a essência de
+                                cada
+                                lugar, criando conexão imediata.</p>
+                        </div>
+                    </details>
+                </div>
+                <a href="contact.html" class="btn btn-outline">Solicitar Orçamento</a>
+            </div>
+            <div class="service-visual">
+                <div class="visual-box"
+                    style="background-image: url('assets/images/portfolio_2.png'); background-size: cover; background-position: center;">
+                </div>
+            </div>
+        </div>
+
+        <div class="service-detail fade-in">
+            <div class="service-text">
+                <h2><span>🏛️</span>Arquitetura & Design</h2>
+                <p>Forma, luz e percepção.
+                    Estética como linguagem de valor.
+
+                </p>
+                <div class="service-list">
+                    <details>
+                        <summary>Projetos arquitetônicos</summary>
+                        <div class="details-wrapper">
+                            <p class="details-content">Direção visual que valoriza linhas, volumes e materialidade —
+                                qualificando a leitura do projeto.</p>
+                        </div>
+                    </details>
+                </div>
                 <a href="contact.html" class="btn btn-outline">Solicitar Orçamento</a>
             </div>
             <div class="service-visual">
@@ -274,6 +427,29 @@
     </footer>
 
     <script src="js/main.js"></script>
+    <script>
+        // Smooth Accordion Animation
+        document.querySelectorAll('.service-list details').forEach((details) => {
+            const summary = details.querySelector('summary');
+            const wrapper = details.querySelector('.details-wrapper');
+
+            summary.addEventListener('click', (e) => {
+                if (details.open) {
+                    e.preventDefault(); // Impede o fechamento instantâneo
+                    wrapper.style.gridTemplateRows = '0fr';
+                    details.classList.remove('is-open');
+
+                    wrapper.addEventListener('transitionend', () => {
+                        details.removeAttribute('open');
+                    }, { once: true });
+                } else {
+                    // Resetamos o gridTemplateRows para permitir a expansão
+                    wrapper.style.gridTemplateRows = '1fr';
+                    setTimeout(() => details.classList.add('is-open'), 10);
+                }
+            });
+        });
+    </script>
 </body>
 
 </html>
