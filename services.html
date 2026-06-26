@@ -94,6 +94,7 @@
 
         .service-text summary::before {
             content: '▹';
+            display: inline-block;
             color: var(--color-accent);
             font-weight: bold;
             transition: transform var(--transition-normal);
@@ -434,26 +435,34 @@
             const wrapper = details.querySelector('.details-wrapper');
 
             summary.addEventListener('click', (e) => {
-                if (details.open) {
-                    e.preventDefault(); // Impede o fechamento instantâneo
+                e.preventDefault(); // Impede o comportamento nativo de clique instantâneo do details
+
+                if (details.hasAttribute('open')) {
+                    // Inicia o fechamento suave (encolhendo o grid para 0fr)
                     wrapper.style.gridTemplateRows = '0fr';
                     details.classList.remove('is-open');
 
-                    wrapper.addEventListener('transitionend', () => {
-                        details.removeAttribute('open');
-                    }, { once: true });
+                    const handleCollapse = (event) => {
+                        if (event.propertyName === 'grid-template-rows') {
+                            details.removeAttribute('open');
+                            wrapper.removeEventListener('transitionend', handleCollapse);
+                        }
+                    };
+                    wrapper.addEventListener('transitionend', handleCollapse);
                 } else {
-                    // Prepara o frame de início com altura zerada
+                    // Inicia a abertura suave
+                    // 1. Revela o elemento no DOM adicionando o atributo open nativo
+                    details.setAttribute('open', '');
+                    // 2. Garante que comecemos com altura colapsada
                     wrapper.style.gridTemplateRows = '0fr';
                     details.classList.remove('is-open');
-
-                    // Aguarda a renderização nativa do open pelo browser para engajar a animação
-                    requestAnimationFrame(() => {
-                        requestAnimationFrame(() => {
-                            wrapper.style.gridTemplateRows = '1fr';
-                            details.classList.add('is-open');
-                        });
-                    });
+                    
+                    // 3. Força o reflow do layout para que o browser registre a altura zero
+                    wrapper.offsetHeight;
+                    
+                    // 4. Modifica para 1fr para disparar a transição CSS suave
+                    wrapper.style.gridTemplateRows = '1fr';
+                    details.classList.add('is-open');
                 }
             });
         });
