@@ -114,7 +114,7 @@
         .service-text .details-wrapper {
             display: grid;
             grid-template-rows: 0fr;
-            transition: grid-template-rows 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: grid-template-rows 0.5s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         .service-text details[open] .details-wrapper {
@@ -443,9 +443,17 @@
                         details.removeAttribute('open');
                     }, { once: true });
                 } else {
-                    // Resetamos o gridTemplateRows para permitir a expansão
-                    wrapper.style.gridTemplateRows = '1fr';
-                    setTimeout(() => details.classList.add('is-open'), 10);
+                    // Prepara o frame de início com altura zerada
+                    wrapper.style.gridTemplateRows = '0fr';
+                    details.classList.remove('is-open');
+
+                    // Aguarda a renderização nativa do open pelo browser para engajar a animação
+                    requestAnimationFrame(() => {
+                        requestAnimationFrame(() => {
+                            wrapper.style.gridTemplateRows = '1fr';
+                            details.classList.add('is-open');
+                        });
+                    });
                 }
             });
         });

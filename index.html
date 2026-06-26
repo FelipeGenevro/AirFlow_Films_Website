@@ -82,7 +82,7 @@
             align-items: center;
             height: 2.5rem;
             margin-bottom: 2rem;
-            overflow: visible;
+            overflow: hidden;
         }
 
         .rotating-text-inner {
@@ -91,16 +91,16 @@
             font-weight: 700;
             color: #a1a5b3f6;
             text-shadow: 0 0 15px rgba(149, 172, 245, 0.4);
-            animation-duration: 0.8s;
+            animation-duration: 0.4s;
             animation-fill-mode: both;
-            animation-timing-function: cubic-bezier(0.2, 0.8, 0.2, 1);
+            animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         @keyframes textSlideIn {
             0% {
-                transform: translateY(20px);
+                transform: translateY(35px);
                 opacity: 0;
-                filter: blur(4px);
+                filter: blur(2px);
             }
 
             100% {
@@ -118,9 +118,9 @@
             }
 
             100% {
-                transform: translateY(-20px);
+                transform: translateY(-35px);
                 opacity: 0;
-                filter: blur(4px);
+                filter: blur(2px);
             }
         }
 
@@ -277,7 +277,7 @@
                 <h2>Onde Atuamos</h2>
             </div>
             <div class="services-grid">
-                <a href="services.html" class="service-card border-glow-card fade-in" style="transition-delay: 0.2s;">
+                <a href="services.html" class="service-card border-glow-card fade-in">
                     <span class="edge-light"></span>
                     <div class="service-icon"><img src="assets/images/Comercios_Icon_Especialidades.webp"
                             alt="Marcas & Campanhas"></div>
@@ -293,7 +293,7 @@
                     <p>Elevamos imóveis a um novo patamar de visibilidade.</p>
                 </a>
 
-                <a href="services.html" class="service-card border-glow-card fade-in">
+                <a href="services.html" class="service-card border-glow-card fade-in" style="transition-delay: 0.2s;">
                     <span class="edge-light"></span>
                     <div class="service-icon"><img src="assets/images/Hotelaria_Icon_Especialidades.webp"
                             alt="Hotelaria & Experiências"></div>
@@ -301,7 +301,7 @@
                     <p>Design que acolhe. Histórias que ficam.</p>
                 </a>
 
-                <a href="services.html" class="service-card border-glow-card fade-in">
+                <a href="services.html" class="service-card border-glow-card fade-in" style="transition-delay: 0.3s;">
                     <span class="edge-light"></span>
                     <div class="service-icon"><img src="assets/images/Arquitetura_icon_Especialidades.webp"
                             alt="Arquitetura & Design"></div>

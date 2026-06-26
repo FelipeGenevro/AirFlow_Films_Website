@@ -199,7 +199,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 // Slide in with new text
                 heroRotatingText.classList.remove('slide-out');
                 heroRotatingText.classList.add('slide-in');
-            }, 800); // Matches the 0.8s animation duration
+            }, 400); // Matches the 0.4s animation duration
         }, 3000); // Change text every 3 seconds
     }
 
@@ -341,4 +341,146 @@ document.addEventListener('DOMContentLoaded', () => {
             card.style.setProperty('--edge-proximity', '0');
         });
     });
+
+    // --- Light Point Custom Cursor ---
+    const isFinePointer = window.matchMedia('(pointer: fine)').matches;
+    
+    if (isFinePointer) {
+        const cursor = document.createElement('div');
+        cursor.className = 'light-point-cursor';
+        document.body.appendChild(cursor);
+
+        let mouseX = 0;
+        let mouseY = 0;
+        let cursorX = 0;
+        let cursorY = 0;
+        let isMoving = false;
+        let isHoveringIframeOrInput = false;
+
+        window.addEventListener('pointermove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+            
+            if (!isMoving) {
+                cursorX = mouseX;
+                cursorY = mouseY;
+                isMoving = true;
+            }
+            
+            if (!isHoveringIframeOrInput) {
+                cursor.classList.add('visible');
+                document.documentElement.classList.add('cursor-enabled');
+            }
+        });
+
+        document.addEventListener('pointerleave', () => {
+            cursor.classList.remove('visible');
+        });
+        document.addEventListener('pointerenter', () => {
+            if (!isHoveringIframeOrInput) {
+                cursor.classList.add('visible');
+            }
+        });
+
+        // Loop for interpolation (spring damping)
+        const lerp = 0.22; // responsive but soft tracking
+        
+        function animateCursor() {
+            if (isMoving) {
+                cursorX += (mouseX - cursorX) * lerp;
+                cursorY += (mouseY - cursorY) * lerp;
+                cursor.style.transform = `translate3d(${cursorX}px, ${cursorY}px, 0)`;
+            }
+            requestAnimationFrame(animateCursor);
+        }
+        animateCursor();
+
+        // Event delegation for state reactivity
+        document.addEventListener('pointerover', (e) => {
+            const target = e.target;
+            if (!target) return;
+
+            // Accessibility rules: hide cursor over inputs & textareas & iframes
+            const isIframe = target.tagName === 'IFRAME' || target.closest('iframe');
+            const isInput = target.tagName === 'INPUT' || target.tagName === 'TEXTAREA' || target.closest('input') || target.closest('textarea');
+            
+            if (isIframe || isInput) {
+                isHoveringIframeOrInput = true;
+                cursor.classList.remove('visible');
+                document.documentElement.classList.remove('cursor-enabled');
+                return;
+            } else {
+                isHoveringIframeOrInput = false;
+                if (isMoving) {
+                    cursor.classList.add('visible');
+                    document.documentElement.classList.add('cursor-enabled');
+                }
+            }
+
+            // 1. Service Card Hover (Purple)
+            if (target.closest('.service-card')) {
+                cursor.setAttribute('data-hover', 'service');
+                return;
+            }
+
+            // 2. Differential Card Hover (Cyan)
+            if (target.closest('.diff-card')) {
+                cursor.setAttribute('data-hover', 'diff');
+                return;
+            }
+
+            // 3. Client Card Hover (Pink)
+            if (target.closest('.client-card')) {
+                cursor.setAttribute('data-hover', 'client');
+                return;
+            }
+
+            // 4. Portfolio Item Hover (Gold)
+            if (target.closest('.gallery-item')) {
+                cursor.setAttribute('data-hover', 'portfolio');
+                return;
+            }
+
+            // 5. WhatsApp Button (Green)
+            if (target.closest('.whatsapp-btn')) {
+                cursor.setAttribute('data-hover', 'whatsapp');
+                return;
+            }
+
+            // 6. Generic links / buttons / hover-triggers (White/Cream glow)
+            if (
+                target.closest('.btn') || 
+                target.closest('.filter-btn') || 
+                target.closest('.play-button') || 
+                target.closest('.social-btn') || 
+                target.closest('button') || 
+                target.closest('a')
+            ) {
+                cursor.setAttribute('data-hover', 'link');
+                return;
+            }
+
+            // Standard cursor (un-reacted point of light)
+            cursor.removeAttribute('data-hover');
+        });
+
+        document.addEventListener('pointerout', (e) => {
+            const target = e.target;
+            if (!target) return;
+            
+            // Re-evaluate state when leaving inputs or iframes
+            const isIframe = target.tagName === 'IFRAME' || target.closest('iframe');
+            const isInput = target.tagName === 'INPUT' || target.tagName === 'TEXTAREA' || target.closest('input') || target.closest('textarea');
+            
+            if (isIframe || isInput) {
+                isHoveringIframeOrInput = false;
+                if (isMoving) {
+                    cursor.classList.add('visible');
+                    document.documentElement.classList.add('cursor-enabled');
+                }
+            }
+            
+            cursor.removeAttribute('data-hover');
+        });
+    }
 });

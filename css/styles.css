@@ -360,7 +360,7 @@ section {
 .fade-in {
   opacity: 0;
   transform: translateY(30px);
-  transition: opacity var(--transition-normal), transform var(--transition-normal);
+  transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1), transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .fade-in.visible {
@@ -995,4 +995,117 @@ section {
     0 0 15px 0 var(--glow-color-30, hsl(40deg 80% 80% / 30%)),
     0 0 25px 2px var(--glow-color-20, hsl(40deg 80% 80% / 20%)),
     0 0 50px 2px var(--glow-color-10, hsl(40deg 80% 80% / 10%));
+}
+
+/* --- Light Point Custom Cursor --- */
+@media (pointer: fine) {
+  html.cursor-enabled,
+  html.cursor-enabled * {
+    cursor: none !important;
+  }
+
+  .light-point-cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 8px;
+    height: 8px;
+    margin-left: -4px;
+    margin-top: -4px;
+    border-radius: 50%;
+    background-color: #ffffff;
+    box-shadow: 
+      0 0 10px 2px rgba(255, 255, 255, 0.8),
+      0 0 20px 6px rgba(255, 255, 255, 0.4);
+    pointer-events: none;
+    z-index: 999999;
+    mix-blend-mode: screen;
+    transition: 
+      width 0.25s cubic-bezier(0.16, 1, 0.3, 1), 
+      height 0.25s cubic-bezier(0.16, 1, 0.3, 1), 
+      margin-left 0.25s cubic-bezier(0.16, 1, 0.3, 1), 
+      margin-top 0.25s cubic-bezier(0.16, 1, 0.3, 1), 
+      background-color 0.3s ease,
+      box-shadow 0.3s ease,
+      opacity 0.2s ease;
+    opacity: 0;
+  }
+
+  .light-point-cursor.visible {
+    opacity: 1;
+  }
+
+  /* --- Morphological and Color States --- */
+
+  /* Link & Button Hover (Cream/White Glow) */
+  .light-point-cursor[data-hover="link"] {
+    width: 14px;
+    height: 14px;
+    margin-left: -7px;
+    margin-top: -7px;
+    background-color: var(--color-accent);
+    box-shadow: 
+      0 0 12px 3px var(--color-accent),
+      0 0 24px 8px rgba(237, 235, 230, 0.5);
+  }
+
+  /* Service Card Hover (Purple/Violet Theme) */
+  .light-point-cursor[data-hover="service"] {
+    width: 24px;
+    height: 24px;
+    margin-left: -12px;
+    margin-top: -12px;
+    background-color: #c084fc;
+    box-shadow: 
+      0 0 15px 4px #c084fc,
+      0 0 30px 10px rgba(192, 132, 252, 0.5);
+  }
+
+  /* Differential Card Hover (Cyan/Blue Theme) */
+  .light-point-cursor[data-hover="diff"] {
+    width: 24px;
+    height: 24px;
+    margin-left: -12px;
+    margin-top: -12px;
+    background-color: #38bdf8;
+    box-shadow: 
+      0 0 15px 4px #38bdf8,
+      0 0 30px 10px rgba(56, 189, 248, 0.5);
+  }
+
+  /* Client/Partner Card Hover (Pink Theme) */
+  .light-point-cursor[data-hover="client"] {
+    width: 20px;
+    height: 20px;
+    margin-left: -10px;
+    margin-top: -10px;
+    background-color: #f472b6;
+    box-shadow: 
+      0 0 12px 3px #f472b6,
+      0 0 24px 8px rgba(244, 114, 182, 0.5);
+  }
+
+  /* Portfolio Gallery Item Hover (Gold/Amber Theme) */
+  .light-point-cursor[data-hover="portfolio"] {
+    width: 24px;
+    height: 24px;
+    margin-left: -12px;
+    margin-top: -12px;
+    background-color: #f59e0b;
+    box-shadow: 
+      0 0 15px 4px #f59e0b,
+      0 0 30px 10px rgba(245, 158, 11, 0.5);
+  }
+
+  /* WhatsApp Hover (Green Theme) */
+  .light-point-cursor[data-hover="whatsapp"] {
+    width: 18px;
+    height: 18px;
+    margin-left: -9px;
+    margin-top: -9px;
+    background-color: #25D366;
+    box-shadow: 
+      0 0 14px 4px #25D366,
+      0 0 28px 8px rgba(37, 211, 102, 0.4);
+  }
 }
