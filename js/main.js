@@ -85,39 +85,73 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Portfolio Video Play Button
-    const videoGalleryItems = document.querySelectorAll('.gallery-item');
+    // Helper function to extract YouTube ID
+    function getYouTubeId(url) {
+        const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
+        const match = url.match(regExp);
+        return (match && match[2].length === 11) ? match[2] : null;
+    }
 
-    videoGalleryItems.forEach(item => {
-        const video = item.querySelector('video');
+    // Portfolio YouTube Video Play Button & Embed Logic
+    const youtubeGalleryItems = document.querySelectorAll('.gallery-item[data-youtube-url]');
+
+    youtubeGalleryItems.forEach(item => {
         const playBtn = item.querySelector('.play-button');
+        const youtubeUrl = item.getAttribute('data-youtube-url');
+        const videoId = getYouTubeId(youtubeUrl);
 
-        if (video && playBtn) {
+        if (videoId && playBtn) {
+            const playVideo = () => {
+                // 1. Stop and remove any other playing YouTube videos
+                document.querySelectorAll('.gallery-item.playing').forEach(otherItem => {
+                    if (otherItem !== item) {
+                        otherItem.classList.remove('playing');
+                        const iframe = otherItem.querySelector('iframe');
+                        if (iframe) iframe.remove();
+                    }
+                });
+
+                // 2. Add playing class to hide cover elements
+                item.classList.add('playing');
+
+                // 3. Create and append the YouTube iframe
+                const iframe = document.createElement('iframe');
+                // Use youtube-nocookie.com and add strict referrerpolicy to prevent Error 153
+                iframe.src = `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&rel=0&modestbranding=1`;
+                iframe.title = "YouTube video player";
+                iframe.frameBorder = "0";
+                iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
+                iframe.allowFullscreen = true;
+                iframe.setAttribute('referrerpolicy', 'strict-origin-when-cross-origin');
+
+                item.appendChild(iframe);
+            };
+
+            // Play when clicking the play button
             playBtn.addEventListener('click', (event) => {
                 event.stopPropagation();
+                playVideo();
+            });
 
-                if (video.paused) {
-                    video.play();
-                    playBtn.style.opacity = '0';
-                    playBtn.style.pointerEvents = 'none';
-                } else {
-                    video.pause();
-                    playBtn.style.opacity = '1';
-                    playBtn.style.pointerEvents = 'auto';
+            // Play when clicking anywhere on the item container if not already playing
+            item.addEventListener('click', () => {
+                if (!item.classList.contains('playing')) {
+                    playVideo();
                 }
             });
-
-            video.addEventListener('click', () => {
-                video.pause();
-                playBtn.style.opacity = '1';
-                playBtn.style.pointerEvents = 'auto';
-            });
-
-            video.addEventListener('ended', () => {
-                playBtn.style.opacity = '1';
-                playBtn.style.pointerEvents = 'auto';
-            });
         }
+    });
+
+    // Cleanup playing videos when filter is clicked
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    filterButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            document.querySelectorAll('.gallery-item.playing').forEach(item => {
+                item.classList.remove('playing');
+                const iframe = item.querySelector('iframe');
+                if (iframe) iframe.remove();
+            });
+        });
     });
 
     // Scroll Highlight for Differentials
@@ -259,4 +293,52 @@ document.addEventListener('DOMContentLoaded', () => {
 
         }, 1500); // spawn a new twinkle every 500ms
     }
+
+    // Border Glow Hover Effect for all .border-glow-card elements
+    const borderGlowCards = document.querySelectorAll('.border-glow-card');
+
+    borderGlowCards.forEach(card => {
+        const getCenterOfElement = (el) => {
+            const rect = el.getBoundingClientRect();
+            return [rect.width / 2, rect.height / 2];
+        };
+
+        const getEdgeProximity = (el, x, y) => {
+            const [cx, cy] = getCenterOfElement(el);
+            const dx = x - cx;
+            const dy = y - cy;
+            let kx = Infinity;
+            let ky = Infinity;
+            if (dx !== 0) kx = cx / Math.abs(dx);
+            if (dy !== 0) ky = cy / Math.abs(dy);
+            return Math.min(Math.max(1 / Math.min(kx, ky), 0), 1);
+        };
+
+        const getCursorAngle = (el, x, y) => {
+            const [cx, cy] = getCenterOfElement(el);
+            const dx = x - cx;
+            const dy = y - cy;
+            if (dx === 0 && dy === 0) return 0;
+            const radians = Math.atan2(dy, dx);
+            let degrees = radians * (180 / Math.PI) + 90;
+            if (degrees < 0) degrees += 360;
+            return degrees;
+        };
+
+        card.addEventListener('pointermove', (e) => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+
+            const edge = getEdgeProximity(card, x, y);
+            const angle = getCursorAngle(card, x, y);
+
+            card.style.setProperty('--edge-proximity', (edge * 100).toFixed(3));
+            card.style.setProperty('--cursor-angle', `${angle.toFixed(3)}deg`);
+        });
+
+        card.addEventListener('pointerleave', () => {
+            card.style.setProperty('--edge-proximity', '0');
+        });
+    });
 });
