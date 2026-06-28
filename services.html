@@ -423,6 +423,9 @@
             </div>
             <div class="footer-bottom">
                 <p>&copy; 2026 AirFlow Films. Todos os direitos reservados.</p>
+                <p style="margin-top: 1rem;">Website created by <a href="https://felipegenevro.com" target="_blank"
+                        style="color: var(--color-accent); text-decoration: none;">Felipe Genevro</a>
+                </p>
             </div>
         </div>
     </footer>
@@ -456,10 +459,10 @@
                     // 2. Garante que comecemos com altura colapsada
                     wrapper.style.gridTemplateRows = '0fr';
                     details.classList.remove('is-open');
-                    
+
                     // 3. Força o reflow do layout para que o browser registre a altura zero
                     wrapper.offsetHeight;
-                    
+
                     // 4. Modifica para 1fr para disparar a transição CSS suave
                     wrapper.style.gridTemplateRows = '1fr';
                     details.classList.add('is-open');
